@@ -1,10 +1,21 @@
 % Thomas Heywood
 % egyth4@nottingham.ac.uk
 
-
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [10 MARKS]
+% a) done
+% b) done
+% c)
+clear a
 
-% Insert answers here
+a = arduino("COM7", "Uno");
+
+for i=1:10
+    writeDigitalPin(a, 'D8',1)
+    pause (1)
+    writeDigitalPin(a, 'D8',0)
+    pause (1)
+end
+
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
