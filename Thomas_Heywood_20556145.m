@@ -10,7 +10,7 @@ clear a
 
 a = arduino("COM7", "Uno");
 
-for i=1:10
+for x=1:10
     writeDigitalPin(a, 'D8',1)
     pause (1)
     writeDigitalPin(a, 'D8',0)
@@ -19,13 +19,30 @@ end
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 clear
+close all
+clc
+
+a = arduino("COM7", "Uno");
 
 duration = 600;
 
-x = 0 : 600;
+V = zeros(duration,1);
+Temp = zeros(duration,1);
 
-y = x;
-plot(x,y);
+for d = 1:duration
+    V(d) = readVoltage(a, 'A0');
+    pause(0.001);
+    %pause(1) to last for 10 mins
+end
+
+Temp= (V-0.5)*100;
+x = 1:duration;
+plot(x,Temp);
+xlabel('Time (s)','Interpreter','latex')
+ylabel('Temperature ($^{o}$C)','Interpreter','latex')
+
+%d)
+
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 clear
