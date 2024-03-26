@@ -17,10 +17,15 @@ for i=1:10
     pause (1)
 end
 
-
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 clear
-% Insert answers here
+
+duration = 600;
+
+x = 0 : 600;
+
+y = x;
+plot(x,y);
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 clear
