@@ -6,6 +6,8 @@ clear
 close all
 clc
 
+function temp_mon
+
 a = arduino("COM7", "Uno");
 
 y = 1;
@@ -45,3 +47,10 @@ plot(temp)
 xlabel('Time (s)','Interpreter','latex')
 ylabel('Temperature ($^{o}$C)','Interpreter','latex')
 drawnow
+
+%This function takes the voltage of the thermistor on the breadboard and
+%converts the data to local temperature of the component. This then sends a
+%warning to the "cockpit" on whether the temperature is too high or low and
+%needs to be changed.
+
+end
